@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bp6kba0c06fh2"]
+
+[ext_resource type="FontFile" uid="uid://b7gt5kasileqf" path="res://Assets/Font/PublicSans/PublicSans-Regular.otf" id="1_hmr8g"]
+
+[resource]
+font = ExtResource("1_hmr8g")

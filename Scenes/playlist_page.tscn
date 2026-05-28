@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bwcfqfm6vkeqs"]
+
+[ext_resource type="Script" uid="uid://duimjj7h5dit" path="res://Scripts/playlist_page.gd" id="1_kmbq0"]
+[ext_resource type="FontFile" uid="uid://vl6uo4k8fabi" path="res://Assets/Font/PublicSans/PublicSans-ExtraBold.otf" id="1_mhxgr"]
+[ext_resource type="FontFile" uid="uid://b7gt5kasileqf" path="res://Assets/Font/PublicSans/PublicSans-Regular.otf" id="3_dvxry"]
+
+[node name="playlist_page" type="VBoxContainer" unique_id=1716660217]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_kmbq0")
+
+[node name="NameEdit" type="TextEdit" parent="." unique_id=926532592]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_mhxgr")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Playlist Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1016586429]
+layout_mode = 2
+
+[node name="Add" type="Button" parent="HBoxContainer" unique_id=499554075]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_dvxry")
+theme_override_font_sizes/font_size = 12
+text = "Add Songs"
+
+[node name="Load" type="Button" parent="HBoxContainer" unique_id=1739191608]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_dvxry")
+theme_override_font_sizes/font_size = 12
+text = "Load Songs"
+
+[node name="Delete" type="Button" parent="HBoxContainer" unique_id=105166894]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_dvxry")
+theme_override_font_sizes/font_size = 12
+text = "Delete Playlist"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=991648116]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/scrollbar_h_separation = 8
+
+[node name="Buttons" type="VBoxContainer" parent="ScrollContainer" unique_id=804414139]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[connection signal="text_changed" from="NameEdit" to="." method="_on_name_edit_text_changed"]
+[connection signal="pressed" from="HBoxContainer/Add" to="." method="_on_add_songs_pressed"]
+[connection signal="pressed" from="HBoxContainer/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="HBoxContainer/Delete" to="." method="_on_delete_pressed"]

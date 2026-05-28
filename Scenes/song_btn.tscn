@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://d2ob38p5njve5"]
+
+[ext_resource type="Script" uid="uid://dechy23ds8bud" path="res://Scripts/song_btn.gd" id="1_ipswl"]
+[ext_resource type="LabelSettings" uid="uid://cj6nqyhus3lup" path="res://Assets/Font/song.tres" id="2_ir617"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c30cv"]
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68x04"]
+bg_color = Color(0, 0, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ir617"]
+
+[node name="Control" type="MarginContainer" unique_id=151387272]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_ipswl")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1940086341]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=545497417]
+layout_mode = 2
+text = "SONG TITLE"
+label_settings = ExtResource("2_ir617")
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="Button" type="Button" parent="." unique_id=335254571]
+z_index = -1
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_c30cv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_68x04")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ir617")
+alignment = 0
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

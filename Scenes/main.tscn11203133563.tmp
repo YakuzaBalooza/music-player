@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://bj2wld2mx7dnr"]
+
+[ext_resource type="Script" uid="uid://d1hgg6goso8xq" path="res://Scripts/main.gd" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://b61f530243y42" path="res://Scripts/options_box.gd" id="2_kry3j"]
+[ext_resource type="Script" uid="uid://c2kx0rldlouue" path="res://Scripts/color_rect.gd" id="3_6bp64"]
+[ext_resource type="Texture2D" uid="uid://bg3xrm54dh0pt" path="res://Assets/Img/gearPress.png" id="3_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://bewugxep3buos" path="res://Assets/Img/gearHover.png" id="4_kry3j"]
+[ext_resource type="Shader" uid="uid://p542xmw3c5ph" path="res://Assets/Shader/blur.gdshader" id="5_21xkr"]
+[ext_resource type="Texture2D" uid="uid://c18g3uhbl10h6" path="res://Assets/Img/gear.png" id="5_344ge"]
+[ext_resource type="LabelSettings" uid="uid://bp6kba0c06fh2" path="res://Assets/Font/body.tres" id="7_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://dicudsll5vaci" path="res://Assets/Img/ctrlBack.png" id="7_hptm8"]
+[ext_resource type="Texture2D" uid="uid://bv7ojidyviagb" path="res://Assets/Img/ctrlPause.png" id="8_hptm8"]
+[ext_resource type="LabelSettings" uid="uid://c6n88jg200xau" path="res://Assets/Font/title.tres" id="8_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://qplasripdvag" path="res://Assets/Img/ctrlNext.png" id="9_6iyac"]
+[ext_resource type="LabelSettings" uid="uid://cb67qp7gvicwf" path="res://Assets/Font/header.tres" id="13_wsu2k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6bp64"]
+shader = ExtResource("5_21xkr")
+shader_parameter/blur_amount = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bp64"]
+bg_color = Color(0.15, 0.15, 0.15, 1)
+
+[node name="Control" type="Control" unique_id=1192923323]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jjgbg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1943835113]
+z_index = 1
+z_as_relative = false
+material = SubResource("ShaderMaterial_6bp64")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("3_6bp64")
+
+[node name="HBox" type="HBoxContainer" parent="." unique_id=301381950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll" type="ScrollContainer" parent="HBox" unique_id=71455473]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/scrollbar_h_separation = 8
+
+[node name="Buttons" type="VBoxContainer" parent="HBox/Scroll" unique_id=1507153597]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Controls" type="VBoxContainer" parent="HBox" unique_id=1489798590]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBox/Controls" unique_id=1163110814]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Options" type="TextureButton" parent="HBox/Controls/MarginContainer" unique_id=1681372279]
+z_index = 2
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("5_344ge")
+texture_pressed = ExtResource("3_jjvhh")
+texture_hover = ExtResource("4_kry3j")
+
+[node name="NowPlaying" type="Label" parent="HBox/Controls" unique_id=602267345]
+layout_mode = 2
+text = "..."
+label_settings = ExtResource("7_fdnlq")
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="HBox/Controls" unique_id=690557093]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+text = "SONG TITLE"
+label_settings = ExtResource("8_jkdf5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBox/Controls" unique_id=1980068214]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="PlayProgress" type="HSlider" parent="HBox/Controls/MarginContainer2" unique_id=148822874]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="CtrlBtn" type="HBoxContainer" parent="HBox/Controls" unique_id=726200126]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="CtrlBack" type="Button" parent="HBox/Controls/CtrlBtn" unique_id=2129801572]
+layout_mode = 2
+icon = ExtResource("7_hptm8")
+
+[node name="CtrlPlay" type="Button" parent="HBox/Controls/CtrlBtn" unique_id=1389330066]
+layout_mode = 2
+icon = ExtResource("8_hptm8")
+
+[node name="CtrlNext" type="Button" parent="HBox/Controls/CtrlBtn" unique_id=19281155]
+layout_mode = 2
+icon = ExtResource("9_6iyac")
+
+[node name="Panel" type="Panel" parent="." unique_id=885840694]
+z_index = 2
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -358.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6bp64")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1809054267]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="OptionsBox" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1931248148]
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("2_kry3j")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/OptionsBox" unique_id=871600494]
+layout_mode = 2
+text = "SETTINGS"
+label_settings = ExtResource("13_wsu2k")
+horizontal_alignment = 1
+
+[node name="SetPath" type="Button" parent="Panel/MarginContainer/OptionsBox" unique_id=1159853513]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/OptionsBox/SetPath" unique_id=2019107585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Set Music Path"
+label_settings = ExtResource("7_fdnlq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/OptionsBox" unique_id=1405927297]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/MarginContainer/OptionsBox/HBoxContainer" unique_id=1867308851]
+layout_mode = 2
+text = "Volume  "
+label_settings = ExtResource("7_fdnlq")
+horizontal_alignment = 1
+
+[node name="Volume" type="HSlider" parent="Panel/MarginContainer/OptionsBox/HBoxContainer" unique_id=1352382762]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=354711313]
+
+[connection signal="pressed" from="HBox/Controls/MarginContainer/Options" to="Panel/MarginContainer/OptionsBox" method="_on_options_pressed"]
+[connection signal="drag_ended" from="HBox/Controls/MarginContainer2/PlayProgress" to="." method="_on_play_progress_drag_ended"]
+[connection signal="drag_started" from="HBox/Controls/MarginContainer2/PlayProgress" to="." method="_on_play_progress_drag_started"]
+[connection signal="pressed" from="HBox/Controls/CtrlBtn/CtrlBack" to="." method="_on_ctrl_back_pressed"]
+[connection signal="pressed" from="HBox/Controls/CtrlBtn/CtrlPlay" to="." method="_on_ctrl_play_pressed"]
+[connection signal="pressed" from="HBox/Controls/CtrlBtn/CtrlNext" to="." method="_on_ctrl_next_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/OptionsBox/SetPath" to="." method="_on_set_path_pressed"]
+[connection signal="drag_ended" from="Panel/MarginContainer/OptionsBox/HBoxContainer/Volume" to="." method="_on_volume_drag_ended"]
+[connection signal="value_changed" from="Panel/MarginContainer/OptionsBox/HBoxContainer/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

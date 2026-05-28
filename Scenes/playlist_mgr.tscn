@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b1huaaxl86o6r"]
+
+[ext_resource type="Script" uid="uid://cliaadglgql4h" path="res://Scripts/playlist_mgr.gd" id="1_qvi4h"]
+[ext_resource type="FontFile" uid="uid://b7gt5kasileqf" path="res://Assets/Font/PublicSans/PublicSans-Regular.otf" id="2_2wtwd"]
+
+[node name="playlist_mgr" type="Control" unique_id=236249578]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qvi4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=72135237]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer" unique_id=2134576455]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/side_margin = 0
+theme_override_font_sizes/font_size = 10
+
+[node name="New" type="Button" parent="VBoxContainer" unique_id=1761649231]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2wtwd")
+theme_override_font_sizes/font_size = 12
+text = "New Playlist"
+
+[connection signal="pressed" from="VBoxContainer/New" to="." method="_on_new_pressed"]

@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cb67qp7gvicwf"]
+
+[ext_resource type="FontFile" uid="uid://vl6uo4k8fabi" path="res://Assets/Font/PublicSans/PublicSans-ExtraBold.otf" id="1_osfo4"]
+
+[resource]
+font = ExtResource("1_osfo4")

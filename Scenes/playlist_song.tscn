@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bkerotbpnx1sf"]
+
+[ext_resource type="Script" uid="uid://bk5sbdvwpb8jb" path="res://Scripts/playlist_song.gd" id="1_rk80j"]
+[ext_resource type="FontFile" uid="uid://b7gt5kasileqf" path="res://Assets/Font/PublicSans/PublicSans-Regular.otf" id="2_rk80j"]
+[ext_resource type="Texture2D" uid="uid://bptrhfyi5c121" path="res://Assets/Img/delete.png" id="3_rk80j"]
+[ext_resource type="Texture2D" uid="uid://myshqj2cdgwf" path="res://Assets/Img/deletePress.png" id="4_a1qt4"]
+[ext_resource type="Texture2D" uid="uid://dso2ymk4k83s6" path="res://Assets/Img/deleteHover.png" id="5_2512a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c30cv"]
+bg_color = Color(0.09985284, 0.09985284, 0.09985284, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a1qt4"]
+font = ExtResource("2_rk80j")
+font_size = 10
+
+[node name="Control" type="PanelContainer" unique_id=657760212]
+custom_minimum_size = Vector2(0, 32)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_c30cv")
+script = ExtResource("1_rk80j")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1940086341]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=545497417]
+layout_mode = 2
+text = "SONG TITLE"
+label_settings = SubResource("LabelSettings_a1qt4")
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1732248349]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_right = 8
+
+[node name="Button2" type="TextureButton" parent="MarginContainer2" unique_id=434127593]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture_normal = ExtResource("3_rk80j")
+texture_pressed = ExtResource("4_a1qt4")
+texture_hover = ExtResource("5_2512a")
+
+[connection signal="pressed" from="MarginContainer2/Button2" to="." method="_on_button_2_pressed"]
