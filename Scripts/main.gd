@@ -124,10 +124,13 @@ func _on_ctrl_play_pressed() -> void:
 			nowplay.text = "NOW PLAYING"
 
 func _on_ctrl_next_pressed() -> void:
-	if (id + 1) > songs.size() - 1:
-		start_song(0)
+	if loop == 2:
+		start_song(randi_range(0, songs.size() - 1))
 	else:
-		start_song(id + 1)
+		if (id + 1) > songs.size() - 1:
+			start_song(0)
+		else:
+			start_song(id + 1)
 
 func _on_ctrl_back_pressed() -> void:
 	if audio.get_playback_position() >= 5.0:
@@ -143,6 +146,8 @@ func _on_play_progress_drag_started() -> void:
 
 func _on_play_progress_drag_ended(_value_changed: bool) -> void:
 	audio.play(progress.value)
+	ctrlplay.icon = load("res://Assets/Img/ctrlPause.png")
+	nowplay.text = "NOW PLAYING"
 
 func _on_play_progress_value_changed(value: float) -> void:
 	timecur.text = len_to_time(value)
